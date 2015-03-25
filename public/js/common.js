@@ -1,3 +1,4 @@
+var socketUrl = "http://192.168.0.42";
 //---------------------------------------------------
 //	Edit Comma
 //---------------------------------------------------
@@ -8,7 +9,7 @@ function edtComma( str ) {
 }
 
 //---------------------------------------------------
-//	Get Request
+//	Get Parameter Edit
 //---------------------------------------------------
 function getRequest() {
 	if(location.search.length > 1) {
@@ -24,8 +25,19 @@ function getRequest() {
 	}
 }
 
-//---------------------------------------------------
-//	socket
-//---------------------------------------------------
-var	mSocketUrl="http://192.168.0.113";//http://labov.aucmint.com
-var socket  = io.connect(mSocketUrl);
+function isNumber(evt) {
+	evt = (evt) ? evt : window.event;
+	var charCode = (evt.which) ? evt.which : evt.keyCode;
+	if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+		return false;
+	}
+	return true;
+}
+
+$(function(){
+		//scroll to top
+	$('.btnUp').click(function(e){
+		e.preventDefault();
+		$('html,body').stop().animate({ scrollTop: 0 }, 'slow');
+	});
+});
