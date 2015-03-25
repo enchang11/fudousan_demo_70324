@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>Air Ticket Reservation</title>
+<!--[if IE]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link href="css/html5reset.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/jquery.mobile.css" rel="stylesheet" type="text/css">
+<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.8.2.min.js"></script>
+<script src="js/jquery-ui-1.8.24.min.js"></script>
+<script src="js/jquery.mobile-1.3.0.min.js"></script>
+<script src="js/jquery.mousewheel.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.js"></script>
+<script src="js/browserdetect.js"></script>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/common.js"></script>
+<script src="js/conductor.js"></script>
+<script src="js/main.js"></script>
+</head>
+
+<body>
+
+<div class="bodyWrapper">
+	<div class="sectionWrapper">
+    
+        <section id="playerPage" data-role="page">
+       		
+            <!--Player Page-->
+            <section class="planeTop">
+            	<div class="wrapper">
+                	
+                    <!--Plane Map-->
+                    <section class="planeMap">
+                    	
+                        <!--Leftside Numbers-->
+                    	<ul class="leftsideNo">
+                            <li>21</li>
+                            <li>22</li>
+                            <li>23</li>
+                            <li class="cr">非常口</li>
+                            <li>24</li>
+                            <li>25</li>
+                            <li>26</li>
+                        </ul>
+                        
+                        <div class="centerContent">
+                        
+                        	<!--Seat Letters-->
+                        	<ul class="seatLetters">
+                            	<li>A</li>
+                                <li>C</li>
+                                <li class="spacing"></li>
+                                <li>D</li>
+                                <li>E</li>
+                                <li>G</li>
+                                <li class="spacing"></li>
+                                <li>H</li>
+                                <li>K</li>
+                            </ul>
+                        
+                        	<!--Seat Plan-->
+                            <ul class="seatPlan">
+                                <li id="21">
+                                </li>
+                                <li id="22">
+                                </li>
+                                <li id="23">
+                                </li>
+                                <li class="fourthRow" id="24">
+                                </li>
+                                <li id="25">
+                                </li>
+                                <li id="26">
+                                </li>
+                            </ul>
+                            
+                            <!--Seat Letters-->
+                        	<ul class="seatLetters">
+                            	<li>A</li>
+                                <li>C</li>
+                                <li class="spacing"></li>
+                                <li>D</li>
+                                <li>E</li>
+                                <li>G</li>
+                                <li class="spacing"></li>
+                                <li>H</li>
+                                <li>K</li>
+                            </ul>
+                        	
+                        </div>
+                        
+                        <!--Leftside Numbers-->
+                    	<ul class="rightsideNo">
+                            <li>21</li>
+                            <li>22</li>
+                            <li>23</li>
+                            <li class="cr">非常口</li>
+                            <li>24</li>
+                            <li>25</li>
+                            <li>26</li>
+                        </ul>
+                        
+                    </section>
+                    
+                    <!--Controls-->
+                     <section class="controls">
+                    	
+                        <h1>
+                            <span>C</span>onductor
+                        </h1>
+                        
+                        <ul class="controller wBBottom">
+                        	<li>
+                            	<label class="form">定価</label>
+                                <input name="" type="text" class="form" id="originalPrice" value="12800">
+                                <div class="field" id="getOrigPrice" style="display:none;"></div>
+                            </li>
+                            <li>
+                            	<label class="form">以前の価格</label>
+                                <div class="field" id="prevPrice">11,200</div>
+                            </li>
+                            <li>
+                            	<label class="form">価格</label>
+                                <input name="" type="text" class="form" id="price" value="11000">
+                            </li>
+                            <li>
+                            	<a href="#" class="btn green" id="btnSendPrice">
+                                	価格変更
+                                </a>
+                            </li>
+                        </ul>
+                        <h2>
+                        	<span>N</span>o.  
+                            of 
+                            <span>P</span>layers : 
+                            <span id="playerNumber">10</span>
+                        </h2>
+                        <ul class="controller">
+                        	<li>
+                                <ul class="numPlayers" id="playerList">
+                                </ul>
+                            </li>
+                            <li>
+                            	<div class="triBtn">
+                                	<a href="#" class="btn green" id="btnStart">
+                                		スタート
+
+                                	</a>
+                                </div>
+                                <div class="triBtn">
+                                	<a href="#" class="btn red" id="btnEnd">
+                                		終了
+                                	</a>
+                                </div>
+                                <div class="triBtn">
+                                	<a href="#" class="btn yellow" id="btnReset">
+                                		リセット
+                                	</a>
+                                </div>
+                            </li>
+                            <li>
+                            	<a href="#" class="btn orange" id="btnUnselect">
+                                	座席の選択解除
+                                </a>
+                            </li>
+                        </ul>
+                        
+                    </section>
+                    
+                </div>
+            </section>
+            
+        </section>
+        
+        <!--Device Warning-->
+        <section class="deviceWarning">
+         <div class="deviceIcon"></div>
+            <div class="deviceAlert"></div>
+            <div class="deviceMsg">デバイスを横にして下さい！</div>
+        </section>
+        
+    </div>
+</div>
+
+</body>
+</html>
+
+
