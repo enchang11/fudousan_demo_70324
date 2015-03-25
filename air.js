@@ -1,4 +1,4 @@
-var express    = require('express');
+/*var express    = require('express');
 var app        = express.createServer();
 var io         = require('socket.io').listen(app);
 
@@ -6,7 +6,14 @@ app.configure(function(){
 	app.use(express.static(__dirname + "/public"));
 });
 
-app.listen(3260);
+app.listen(3260);*/
+var express = require('express');
+var app = express();
+require('socket.io').version
+var server = app.listen(3260);
+var io = require('socket.io').listen(server);
+
+app.use(express.static(__dirname + '/public'));
 
 //remove error log
 io.set('log level', 1);
