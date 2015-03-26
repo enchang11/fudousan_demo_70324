@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="jp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<title>JOB管理</title>
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- CSS -->
+<link href="css/h5reset.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+
+<!-- JS -->
+<script src="js/modernizr.custom.js"></script>
+<script src="js/jquery-1.8.2.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/job.js"></script>
+</head>
+
+<body>
+<div class="body-wrapper">
+	<!-- Sub Header -->
+    <header class="sub-header">
+    	<div class="wrapper">
+            <h1>
+                <i class="icon i16 i16-loca"></i>
+                青山OMビル
+            </h1>
+        </div>
+    </header>
+    <!-- Legend Container -->
+    <div class="legend-container">
+    	<div class="wrapper">
+        	<ul class="legend">
+            	<li>
+                	<span class="blue"></span>
+                    未着手
+                </li>
+                <li>
+                	<span class="yellow"></span>
+                    作業中
+                </li>
+                <li>
+                	<span class="purple"></span>
+                    作業完了 未チェック
+                </li>
+                <li>
+                	<span class="green"></span>
+                    作業完了 チェック済
+                </li>
+                <li>
+                	<span class="red"></span>
+                    報告対応中
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="wrapper">
+    	<!-- Table -->
+        <ul class="table">
+            <li>
+                <div class="cell-job">JOB001</div>
+                <div class="cell-worker">Aさん</div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="blue" id="7p3"></span>
+                </div>
+                <div>
+                    <span class="blue"></span>
+                </div>
+                <div>
+                    <span class="blue"></span>
+                </div>
+            </li>
+            <li>
+                <div class="cell-job">JOB002</div>
+                <div class="cell-worker">Bさん</div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="blue"></span>
+                </div>
+            </li>
+            <li>
+                <div class="cell-job">JOB003</div>
+                <div class="cell-worker">Cさん</div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="purple"></span>
+                </div>
+                <div>
+                    <span class="yellow"></span>
+                </div>
+                <div>
+                    <span class="blue"></span>
+                </div>
+            </li>
+            <li>
+                <div class="cell-job">JOB004</div>
+                <div class="cell-worker">Dさん</div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="purple"></span>
+                </div>
+                <div>
+                    <span class="yellow"></span>
+                </div>
+                <div>
+                    <span class="blue"></span>
+                </div>
+            </li>
+            <li>
+                <div class="cell-job">JOB005</div>
+                <div class="cell-worker">Eさん</div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="yellow"></span>
+                </div>
+                <div>
+                    <span class="purple"></span>
+                </div>
+            </li>
+            <li>
+                <div class="cell-job">JOB006</div>
+                <div class="cell-worker">Fさん</div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="red"></span>
+                  	<div class="report">
+                    	<h2>報告No 00026</h2>
+                        <div class="report-detail">
+                        	<figure class="report-photo"><img src="images/report.png" width="400" height="365"></figure>
+                            <div class="report-text">
+                            	<p>
+                                    北側壁に穴が<br>
+                                    開いている！
+                                </p>
+                                <strong>対応状況</strong>
+                                <p>
+                                	XXXXに連絡済み。<br>
+                                    4/25までに修理予定
+                                </p>
+                            </div>
+                      </div>
+                    </div>
+                    
+                </div>
+                <div>
+                    <span class="blue"></span>
+                </div>
+                <div>
+                    <span class="blue"></span>
+                </div>
+                <div>
+                    <span class="blue"></span>
+                </div>
+            </li>
+            <li>
+                <div class="cell-job">JOB007</div>
+                <div class="cell-worker">Gさん</div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="yellow"></span>
+                </div>
+                <div>
+                    <span class="purple"></span>
+                </div>
+            </li>
+            <li>
+                <div class="cell-job">JOB008</div>
+                <div class="cell-worker">Hさん</div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="purple"></span>
+                </div>
+                <div>
+                    <span class="purple"></span>
+                </div>
+            </li>
+            <li>
+                <div class="cell-job">JOB009</div>
+                <div class="cell-worker">Iさん</div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="purple"></span>
+                </div>
+            </li>
+            <li>
+                <div class="cell-job">JOB010</div>
+                <div class="cell-worker">Jさん</div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="blue"></span>
+                </div>
+            </li>
+            <li>
+                <div class="cell-job">JOB011</div>
+                <div class="cell-worker">Jさん</div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="green"></span>
+                </div>
+                <div>
+                    <span class="blue"></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+</div>
+</body>
+</html>
