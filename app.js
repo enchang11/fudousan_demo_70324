@@ -14,7 +14,7 @@ app.configure(function(){
 	app.use(express.static(__dirname + "/public"));
 });
 
-app.listen(3003);
+app.listen(3000);
 
 //remove error log
 io.set('log level', 1);
