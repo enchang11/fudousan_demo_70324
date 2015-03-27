@@ -1,4 +1,4 @@
-var socketUrl = "http://fudousan.aucmint.com";
+var socketUrl = "http://fudousan.aucmint.com:3000";
 var socket = io.connect(socketUrl);
 
 $(function(){
@@ -33,7 +33,7 @@ $(function(){
 	
 	socket.on('res.end', function(){
 		$('#7p3').removeClass();
-		$('#7p3').addClass('green');
+		$('#7p3').addClass('purple');
 	});
 	
 	$('div').on('click','.red', function(){

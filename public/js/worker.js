@@ -1,4 +1,4 @@
-var socketUrl = "http://fudousan.aucmint.com";
+var socketUrl = "http://fudousan.aucmint.com:3000";
 var socket = io.connect(socketUrl);
 
 $(function(){
