@@ -47,11 +47,11 @@ $(function(){
 	});
 	
 	$('div').on('click', '.report', function(){
-		$(this).closest('.report').hide();
+		$(this).hide();
 	});
 	
 	$('div').on('click', '.report-close', function(){
-		$(this).hide();
+		$(this).closest('.report').hide();
 	});
 		
 	$('body').on('click',function(e){
