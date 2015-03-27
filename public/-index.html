@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+	var socketUrl = "http://192.168.0.42";
+	$(function(){
+		var worker = sessionStorage.getItem('workerId');
+		
+		$('#btnStart').on('click', function(){
+			socket.emit('req.start', worker);
+		});
+		
+		$('#btnReport').on('click', function(){
+			socket.emit('req.report', worker);
+		});
+		
+		$('#btnEnd').on('click', function(){
+			socket.emit('req.end', worker);
+		});
+		
+		
+		//result
+		socket.on('req.start', function(data){
+		
+		});
+		
+		socket.on('req.report', function(data){
+		
+		});
+		
+		socket.on('req.end', function(data){
+		
+		});
+		
+	});
+</script>
+</head>
+
+<body>
+	<div>
+    	<strong>Worker</strong>
+    	<div>
+        <button id="btnStart">開始</button>
+    	<button id="btnReport">報告</button>
+        <button id="btnEnd">完了</button>
+        </div>
+        <strong>Manager</strong>
+    </div>
+</body>
+</html>

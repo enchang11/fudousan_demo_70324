@@ -12,7 +12,12 @@ $(function(){
 		$('#7p3').removeClass();
 		$('#7p3').addClass('red');
 		$('#7p3').closest('div').append('<div class="report">'+
-                    	'<h2>報告No 00026</h2>'+
+                    	'<h2>'+
+						'報告No 00026'+
+						'<span class="report-close">'+
+						 '<i class="icon i16 i16-clos"></i>'+
+						'</span>'+
+						'</h2>'+
                         '<div class="report-detail">'+
                         	'<figure class="report-photo"><img src="images/report.png" width="400" height="365"></figure>'+
                             '<div class="report-text">'+
