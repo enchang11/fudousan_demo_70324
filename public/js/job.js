@@ -47,9 +47,13 @@ $(function(){
 	});
 	
 	$('div').on('click', '.report', function(){
-		$(this).hide();
+		$(this).closest('.report').hide();
 	});
 	
+	$('div').on('click', '.report-close', function(){
+		$(this).hide();
+	});
+		
 	$('body').on('click',function(e){
 		if(!$(e.target).hasClass('red')){
 			if($('.report').is(':visible')){
