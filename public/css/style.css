@@ -269,6 +269,11 @@ a:hover .listing-box{border:#7abbe4 1px solid;}
 	border-bottom:#d4d4d4 1px solid;
 }
 
+.report-close{
+	float:right;
+	cursor:pointer;
+}
+
 .report-detail{
 	font-size:0;
 	padding:20px;
@@ -330,6 +335,10 @@ a:hover .listing-box{border:#7abbe4 1px solid;}
 }
 
 .i16-loca{background-position:-24px 0;}
+.i16-clos{background-position:-24px -16px;}
+
+span:hover .i16-clos{background-position:-40px -16px;}
+
 
 /*-- 340 --*/
 @media only screen and (max-width:1024px){
